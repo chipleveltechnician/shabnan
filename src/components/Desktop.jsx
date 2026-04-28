@@ -69,7 +69,7 @@ const Desktop = () => {
             <div 
               key={app.id}
               className="flex flex-col items-center gap-1 w-20 desktop-icon p-2 rounded cursor-pointer group"
-              onDoubleClick={() => openApp(app)}
+              onClick={() => openApp(app)}
             >
               <app.icon size={40} className="text-white drop-shadow-md group-hover:text-blue-200" />
               <span className="text-white text-xs text-center drop-shadow-md break-words">{app.title}</span>
@@ -124,7 +124,7 @@ const Desktop = () => {
 
         {/* System Tray */}
         <div className="flex items-center h-full px-2 text-white/90 text-sm">
-          <div className="flex items-center gap-3 px-3 h-full hover:bg-white/10 cursor-pointer transition-colors">
+          <div className="hidden md:flex items-center gap-3 px-3 h-full hover:bg-white/10 cursor-pointer transition-colors">
             <ChevronUp size={16} />
             <Wifi size={16} />
             <Volume2 size={16} />

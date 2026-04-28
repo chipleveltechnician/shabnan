@@ -6,7 +6,14 @@ const Window = ({ id, title, icon: Icon, children, onClose, isActive, onFocus })
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [isMaximized, setIsMaximized] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const windowRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleMouseDown = (e) => {
     onFocus(id);
@@ -59,11 +66,11 @@ const Window = ({ id, title, icon: Icon, children, onClose, isActive, onFocus })
       className={`absolute flex flex-col bg-[#f0f0f0] border border-gray-400 window-shadow overflow-hidden transition-all duration-200 ease-out ${
         isActive ? 'z-40' : 'z-30'
       } ${
-        isMaximized 
+        isMaximized || isMobile
           ? 'top-0 left-0 w-full h-[calc(100vh-48px)] rounded-none' 
           : 'w-[800px] max-w-[90vw] h-[600px] max-h-[80vh] rounded-md'
       }`}
-      style={!isMaximized ? { left: position.x, top: position.y } : {}}
+      style={!(isMaximized || isMobile) ? { left: position.x, top: position.y } : { left: 0, top: 0 }}
     >
       {/* Window Header */}
       <div className={`window-header h-8 flex items-center justify-between px-2 select-none ${isActive ? 'bg-[#0078D7] text-white' : 'bg-gray-300 text-gray-500'}`}>
@@ -72,10 +79,10 @@ const Window = ({ id, title, icon: Icon, children, onClose, isActive, onFocus })
           <span className="text-sm font-medium">{title}</span>
         </div>
         <div className="flex items-center gap-1">
-          <button className="p-1 hover:bg-white/20 rounded-sm">
+          <button className="p-1 hover:bg-white/20 rounded-sm hidden md:block">
             <Minus size={16} />
           </button>
-          <button onClick={toggleMaximize} className="p-1 hover:bg-white/20 rounded-sm">
+          <button onClick={toggleMaximize} className="p-1 hover:bg-white/20 rounded-sm hidden md:block">
             <Square size={14} />
           </button>
           <button onClick={() => onClose(id)} className="p-1 hover:bg-red-500 hover:text-white rounded-sm">
