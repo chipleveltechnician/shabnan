@@ -23,7 +23,7 @@ const ContactApp = () => {
             </div>
             <div>
               <div className="text-xs text-gray-500 font-semibold uppercase">Phone</div>
-              <div className="text-sm font-bold">+91 9048753116</div>
+              <div className="text-sm font-bold">+91 8848529656</div>
             </div>
           </div>
 
@@ -33,7 +33,7 @@ const ContactApp = () => {
             </div>
             <div>
               <div className="text-xs text-gray-500 font-semibold uppercase">Email</div>
-              <div className="text-sm font-bold">shabnan@example.com</div>
+              <div className="text-sm font-bold">shabnanshabnan99@gmail.com</div>
             </div>
           </div>
 
