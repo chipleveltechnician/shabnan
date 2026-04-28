@@ -1,0 +1,85 @@
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
+
+const ContactApp = () => {
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('Message sent successfully!');
+    setTimeout(() => setStatus(''), 3000);
+  };
+
+  return (
+    <div className="p-4 font-sans text-gray-800 h-full flex flex-col">
+      <h2 className="text-xl font-bold mb-6 border-b pb-2">Contact Information</h2>
+      
+      <div className="flex flex-col md:flex-row gap-8 flex-1">
+        {/* Contact Info */}
+        <div className="w-full md:w-1/3 space-y-6">
+          <div className="flex items-center gap-4 bg-gray-50 p-3 border border-gray-200">
+            <div className="bg-blue-100 p-2 text-blue-600 rounded">
+              <Phone size={20} />
+            </div>
+            <div>
+              <div className="text-xs text-gray-500 font-semibold uppercase">Phone</div>
+              <div className="text-sm font-bold">+91 9048753116</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 bg-gray-50 p-3 border border-gray-200">
+            <div className="bg-blue-100 p-2 text-blue-600 rounded">
+              <Mail size={20} />
+            </div>
+            <div>
+              <div className="text-xs text-gray-500 font-semibold uppercase">Email</div>
+              <div className="text-sm font-bold">shabnan@example.com</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 bg-gray-50 p-3 border border-gray-200">
+            <div className="bg-blue-100 p-2 text-blue-600 rounded">
+              <MapPin size={20} />
+            </div>
+            <div>
+              <div className="text-xs text-gray-500 font-semibold uppercase">Location</div>
+              <div className="text-sm font-bold">Kerala, India</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="w-full md:w-2/3">
+          <form onSubmit={handleSubmit} className="bg-gray-50 p-4 border border-gray-200 h-full flex flex-col">
+            <h3 className="font-bold mb-4">Send a Message</h3>
+            
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-xs font-semibold mb-1">Name</label>
+                <input type="text" className="w-full border border-gray-300 px-2 py-1 text-sm focus:border-blue-500 outline-none" required />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold mb-1">Email</label>
+                <input type="email" className="w-full border border-gray-300 px-2 py-1 text-sm focus:border-blue-500 outline-none" required />
+              </div>
+            </div>
+            
+            <div className="flex-1 mb-4 flex flex-col">
+              <label className="block text-xs font-semibold mb-1">Message</label>
+              <textarea className="w-full border border-gray-300 px-2 py-1 text-sm focus:border-blue-500 outline-none flex-1 resize-none" required></textarea>
+            </div>
+            
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-green-600 font-bold">{status}</span>
+              <button type="submit" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-sm font-bold transition-colors">
+                <Send size={16} /> Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ContactApp;

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chipleveltechnician.github.io/salman/sitemap.xml
