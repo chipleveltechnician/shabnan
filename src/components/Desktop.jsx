@@ -57,6 +57,75 @@ const Desktop = () => {
       {/* Desktop Overlay for slightly darker wallpaper */}
       <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply pointer-events-none z-0"></div>
 
+      {/* Animated Name on Wallpaper */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none select-none">
+        <div className="text-center" style={{ animation: 'fadeInUp 1.5s ease-out forwards' }}>
+          {/* Glowing Ring */}
+          <div className="relative inline-block mb-4">
+            <div className="w-24 h-24 rounded-full border-2 border-blue-400/60 mx-auto flex items-center justify-center"
+              style={{ animation: 'pulse-ring 3s ease-in-out infinite', boxShadow: '0 0 30px rgba(0,120,215,0.5)' }}>
+              <div className="w-16 h-16 rounded-full bg-blue-500/20 border border-blue-300/40 flex items-center justify-center">
+                <span className="text-3xl">⚙️</span>
+              </div>
+            </div>
+            {/* Orbiting dot */}
+            <div className="absolute top-0 left-1/2 w-3 h-3 -mt-1.5 -ml-1.5 rounded-full bg-blue-400"
+              style={{ animation: 'orbit 4s linear infinite', transformOrigin: '50% 54px' }}>
+            </div>
+          </div>
+
+          {/* Name */}
+          <h1
+            className="text-4xl md:text-6xl font-bold text-white mb-2 tracking-widest"
+            style={{
+              textShadow: '0 0 40px rgba(0,120,215,0.9), 0 0 80px rgba(0,120,215,0.4)',
+              animation: 'glow-text 3s ease-in-out infinite alternate'
+            }}
+          >
+            MUHAMMED SHABNAN
+          </h1>
+
+          {/* Subtitle with typing blink */}
+          <p
+            className="text-blue-200 text-base md:text-xl tracking-widest font-light"
+            style={{ textShadow: '0 0 20px rgba(100,180,255,0.6)' }}
+          >
+            Laptop Chip Level Technician
+          </p>
+
+          {/* Decorative line */}
+          <div className="flex items-center justify-center gap-3 mt-4">
+            <div className="h-px w-16 md:w-32 bg-gradient-to-r from-transparent to-blue-400"></div>
+            <div className="w-2 h-2 rounded-full bg-blue-400" style={{ animation: 'blink-dot 1.5s ease-in-out infinite' }}></div>
+            <div className="h-px w-16 md:w-32 bg-gradient-to-l from-transparent to-blue-400"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* CSS Animations */}
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes glow-text {
+          from { text-shadow: 0 0 20px rgba(0,120,215,0.7), 0 0 40px rgba(0,120,215,0.3); }
+          to   { text-shadow: 0 0 40px rgba(0,180,255,1),   0 0 80px rgba(0,180,255,0.5), 0 0 120px rgba(0,120,215,0.3); }
+        }
+        @keyframes pulse-ring {
+          0%, 100% { transform: scale(1);    box-shadow: 0 0 20px rgba(0,120,215,0.5); }
+          50%       { transform: scale(1.08); box-shadow: 0 0 50px rgba(0,120,215,0.9); }
+        }
+        @keyframes orbit {
+          from { transform: rotate(0deg)   translateY(-48px) rotate(0deg); }
+          to   { transform: rotate(360deg) translateY(-48px) rotate(-360deg); }
+        }
+        @keyframes blink-dot {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50%       { opacity: 0.3; transform: scale(0.6); }
+        }
+      `}</style>
+
       {/* Desktop Icons Grid */}
       <div className="absolute top-0 left-0 bottom-12 p-4 flex flex-col flex-wrap gap-4 z-10">
         <div className="flex flex-col gap-6">
