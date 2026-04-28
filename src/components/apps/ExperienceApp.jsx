@@ -3,22 +3,10 @@ import React from 'react';
 const ExperienceApp = () => {
   const experiences = [
     {
-      role: "Senior Chip Level Technician",
-      company: "TechFix Solutions",
-      duration: "2023 - Present",
-      description: "Leading the board repair division. Responsible for diagnosing and repairing complex dead laptop motherboards, replacing BGA chips, and training junior technicians in micro-soldering techniques."
-    },
-    {
-      role: "Laptop Service Engineer",
-      company: "ElectroCare Electronics",
-      duration: "2020 - 2023",
-      description: "Performed component-level repairs on various laptop brands. Specialized in resolving display issues (LVDS/eDP circuits), charging IC failures, and fixing BIOS corruption."
-    },
-    {
-      role: "Hardware Support Trainee",
-      company: "SystemTech Services",
-      duration: "2018 - 2020",
-      description: "Assisted senior technicians with disassembling devices, replacing standard parts (RAM, HDD, screens), and learning basic multimeter diagnostics."
+      role: "Laptop Chip Level Technician",
+      company: "Freelance / Professional Services",
+      duration: "2025 - 2026",
+      description: "Specialized in advanced motherboard repair, BGA rework, and power circuit diagnostics. Successfully handled hundreds of complex chip-level repairs with high success rates using precision tools and schematic analysis."
     }
   ];
 
