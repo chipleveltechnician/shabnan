@@ -1,14 +1,15 @@
 import React from 'react';
+import profilePhoto from '../../assets/profile.jpg';
 
 const AboutApp = () => {
   return (
     <div className="p-4 text-gray-800 font-sans">
       <div className="flex items-start gap-6 mb-8">
-        <div className="w-32 h-32 bg-gray-200 border-2 border-gray-400 rounded-md overflow-hidden shrink-0">
+        <div className="w-32 h-32 bg-gray-200 border-2 border-blue-400 rounded-full overflow-hidden shrink-0 shadow-lg" style={{ boxShadow: '0 0 16px rgba(0,120,215,0.4)' }}>
           <img 
-            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop" 
+            src={profilePhoto}
             alt="Muhammed Shabnan" 
-            className="w-full h-full object-cover grayscale"
+            className="w-full h-full object-cover"
           />
         </div>
         <div>

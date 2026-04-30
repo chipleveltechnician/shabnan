@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import profilePhoto from '../assets/profile.jpg';
 import { 
   Monitor, 
   FileText, 
@@ -62,15 +63,18 @@ const Desktop = () => {
         <div className="text-center" style={{ animation: 'fadeInUp 1.5s ease-out forwards' }}>
           {/* Glowing Ring */}
           <div className="relative inline-block mb-4">
-            <div className="w-24 h-24 rounded-full border-2 border-blue-400/60 mx-auto flex items-center justify-center"
-              style={{ animation: 'pulse-ring 3s ease-in-out infinite', boxShadow: '0 0 30px rgba(0,120,215,0.5)' }}>
-              <div className="w-16 h-16 rounded-full bg-blue-500/20 border border-blue-300/40 flex items-center justify-center">
-                <span className="text-3xl">⚙️</span>
-              </div>
+            <div className="w-28 h-28 rounded-full border-2 border-blue-400/70 mx-auto flex items-center justify-center overflow-hidden"
+              style={{ animation: 'pulse-ring 3s ease-in-out infinite', boxShadow: '0 0 30px rgba(0,120,215,0.6), 0 0 60px rgba(0,120,215,0.3)' }}>
+              <img
+                src={profilePhoto}
+                alt="Muhammed Shabnan"
+                className="w-full h-full object-cover rounded-full"
+                style={{ filter: 'brightness(1.05) contrast(1.05)' }}
+              />
             </div>
             {/* Orbiting dot */}
             <div className="absolute top-0 left-1/2 w-3 h-3 -mt-1.5 -ml-1.5 rounded-full bg-blue-400"
-              style={{ animation: 'orbit 4s linear infinite', transformOrigin: '50% 54px' }}>
+              style={{ animation: 'orbit 4s linear infinite', transformOrigin: '50% 56px' }}>
             </div>
           </div>
 
