@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User } from 'lucide-react';
+import profilePhoto from '../assets/profile.jpg';
 
 const BootSequence = ({ phase, onLogin }) => {
   return (
@@ -44,8 +44,12 @@ const LoginScreen = ({ onLogin }) => {
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
       
       <div className="z-10 flex flex-col items-center mt-[-10vh]">
-        <div className="w-32 h-32 rounded-full bg-gray-200/20 border-4 border-white/30 flex items-center justify-center mb-6 shadow-2xl backdrop-blur-md">
-          <User size={64} className="text-white/80" />
+        <div className="w-40 h-40 rounded-full bg-gray-200/20 border-4 border-white/30 flex items-center justify-center mb-8 shadow-2xl backdrop-blur-md overflow-hidden">
+          <img 
+            src={profilePhoto} 
+            alt="Muhammed Shabnan" 
+            className="w-full h-full object-cover"
+          />
         </div>
         <h1 className="text-4xl font-semibold text-white mb-8 tracking-wide drop-shadow-lg">
           Muhammed Shabnan
