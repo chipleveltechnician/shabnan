@@ -4,65 +4,9 @@ import { User } from 'lucide-react';
 const BootSequence = ({ phase, onLogin }) => {
   return (
     <div className="w-full h-full relative">
-      {phase === 'bios' && <BiosScreen />}
       {phase === 'loading' && <LoadingScreen />}
       {phase === 'login' && <LoginScreen onLogin={onLogin} />}
       <div className="absolute inset-0 scanlines z-50 pointer-events-none"></div>
-    </div>
-  );
-};
-
-const BiosScreen = () => {
-  const [lines, setLines] = useState([]);
-  
-  const bootText = [
-    "TechBios (C) 2026 American Megatrends, Inc.",
-    "BIOS Date: 04/27/26 19:00:27 Ver: 08.00.15",
-    "CPU: Intel(R) Core(TM) i9-14900HX CPU @ 2.20GHz",
-    "Speed: 2.20 GHz",
-    "",
-    "Press DEL to run Setup",
-    "Press F11 for Boot Menu",
-    "Single-Channel Memory Mode",
-    "65536MB OK",
-    "",
-    "Auto-Detecting Pri Master..IDE Hard Disk",
-    "Auto-Detecting Pri Slave...Not Detected",
-    "Pri Master: WDC WD5000AAKX-001CA0 15.01H15",
-    "Ultra DMA Mode-6, S.M.A.R.T. Capable and Status OK",
-    "",
-    "Loading Motherboard Diagnostics...",
-    "[OK] VRM Controllers Checked",
-    "[OK] Super I/O Chip Initiated",
-    "[OK] PCH Temperature Normal",
-    "Initiating Boot Sequence...",
-  ];
-
-  useEffect(() => {
-    let currentLine = 0;
-    const interval = setInterval(() => {
-      if (currentLine < bootText.length) {
-        setLines(prev => [...prev, bootText[currentLine]]);
-        currentLine++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 150); // Speed of text rendering
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="w-full h-full bg-black text-gray-300 p-4 font-mono text-sm md:text-base bios-text flex flex-col">
-      <div className="flex justify-between items-start mb-4">
-        <div className="text-xl font-bold">TechBios</div>
-        <div className="w-16 h-16 border-2 border-gray-500 flex items-center justify-center p-1">
-          <span className="text-xs text-center">EPA POLLUTION PREVENTER</span>
-        </div>
-      </div>
-      {lines.map((line, index) => (
-        <div key={index}>{line || '\u00A0'}</div>
-      ))}
-      {lines.length < bootText.length && <div className="blink-cursor inline-block"></div>}
     </div>
   );
 };

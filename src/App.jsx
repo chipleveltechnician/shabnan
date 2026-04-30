@@ -3,27 +3,16 @@ import BootSequence from './components/BootSequence';
 import Desktop from './components/Desktop';
 
 function App() {
-  const [bootPhase, setBootPhase] = useState('bios'); // 'bios', 'loading', 'login', 'desktop'
+  const [bootPhase, setBootPhase] = useState('loading'); // 'loading', 'login', 'desktop'
 
   useEffect(() => {
-    // Phase 1: BIOS
-    const biosTimer = setTimeout(() => {
-      setBootPhase('loading');
-    }, 4500); // BIOS takes 4.5 seconds
+    // Phase 1: Windows Loading (Starts immediately now)
+    const loadTimer = setTimeout(() => {
+      setBootPhase('login');
+    }, 3500);
 
-    return () => clearTimeout(biosTimer);
+    return () => clearTimeout(loadTimer);
   }, []);
-
-  useEffect(() => {
-    if (bootPhase === 'loading') {
-      // Phase 2: Windows Loading
-      const loadTimer = setTimeout(() => {
-        setBootPhase('login');
-      }, 3500); // Loading takes 3.5 seconds
-
-      return () => clearTimeout(loadTimer);
-    }
-  }, [bootPhase]);
 
   const handleLogin = () => {
     setBootPhase('desktop');
